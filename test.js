@@ -2,7 +2,7 @@
 
 /**
  * Run complete package tests.
- * (C) 2013 Alex Fernández.
+ * (C) 2014 Alex Fernández.
  */
 
 // requires
@@ -20,7 +20,7 @@ exports.test = function(callback)
 {
 	log.debug('Running tests');
 	var tests = {};
-	var modules = ['deployment', 'server', 'token'];
+	var modules = ['profiler'];
 	modules.forEach(function(name)
 	{
 		var filename = './lib/' + name + '.js';
