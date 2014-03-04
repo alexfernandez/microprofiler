@@ -1,0 +1,26 @@
+{
+	"name": "microprofiler",
+	"version": "0.0.1",
+	"description": "Low-level profiling for node.js: squeeze those microseconds.",
+	"homepage": "https://github.com/alexfernandez/microprofiler",
+	"contributors": ["Alex Fernández <alexfernandeznpm@gmail.com>"],
+	"license": "MIT",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexfernandez/microprofiler"
+	},
+	"dependencies": {
+		"prototypes": "*",
+		"testing": "*",
+		"log": "*"
+	},
+	"keywords" : ["profiler", "profiling", "microprofiler", "microseconcds", "npm", "optimization"],
+	"engines": {
+		"node": "*"
+	},
+	"scripts": {
+		"test": "node test.js"
+	},
+	"private": false
+}
