@@ -59,6 +59,9 @@ but just calling `process.hrtime()` twice takes longer than that
 so it is not possible.)
 The library is therefore accurate to within two microseconds.
 
+Given that the impact of profiling is low but not zero, the whole module
+can be disabled with `profiler.disable()`.
+
 To get stats from your code just call `profiler.getStats()`:
 
     var stats = profiler.getStats('code');
