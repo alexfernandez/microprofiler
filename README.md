@@ -48,7 +48,6 @@ It will show a line similar to this:
     [Tue Mar 04 2014 01:40:17 GMT+0100 (CET)] INFO Profiling code: 1000 requests, mean time: 105.76 µs, rps: 9455
 
 That is really all there is to it.
-
 The functions above can be used in asynchronous code without problems.
 
 ## Measuring Performance
@@ -60,7 +59,9 @@ so it is not possible.)
 The library is therefore accurate to within two microseconds.
 
 Given that the impact of profiling is low but not zero, the whole module
-can be disabled with `profiler.disable()`.
+can be disabled with `profiler.disable()`:
+
+    profiler.disable();
 
 To get stats from your code just call `profiler.getStats()`:
 
