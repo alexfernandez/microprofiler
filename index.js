@@ -10,6 +10,5 @@
 var profiler = require('./lib/profiler.js');
 
 // exports
-exports.start = profiler.start;
-exports.measureFrom = profiler.measureFrom;
+exports.overwriteWith(profiler);
 
