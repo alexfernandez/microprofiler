@@ -21,6 +21,7 @@ Or add to your package.json as a dependency.
 
 ## Usage
 
+The library has been designed to be dead simple to use.
 First require use of microprofiler:
 
     var profiler = require('microprofiler');
@@ -48,15 +49,29 @@ It will show a line similar to this:
 
 That is really all there is to it.
 
-### Measuring Performance
-
-The library has been designed to be dead simple to use.
-Each measurement should take less than a microsecond to perform.
-The library is therefore accurate to within one microsecond.
-
-### Asynchronous Profiling
-
 The functions above can be used in asynchronous code without problems.
+
+## Measuring Performance
+
+Each measurement should take less about one microsecond to perform.
+(It would be better to have it take less than one microsecond,
+but just calling `process.hrtime()` twice takes longer than that
+so it is not possible.)
+The library is therefore accurate to within two microseconds.
+
+To get stats from your code just call `profiler.getStats()`:
+
+    var stats = profiler.getStats('code');
+
+It will return an object with current stats info, like this:
+
+    {
+        "key":"code",
+        "requests":10000,
+        "timeUs":9193.090999999931,
+        "meanTimeUs":"0.92",
+        "rps":1087773
+    }
 
 ## Example
 
