@@ -7,6 +7,7 @@
 
 
 // requires
+require('prototypes');
 var profiler = require('./lib/profiler.js');
 
 // exports
