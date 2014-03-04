@@ -1,6 +1,6 @@
 {
 	"name": "microprofiler",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Low-level profiling for node.js: squeeze those microseconds.",
 	"homepage": "https://github.com/alexfernandez/microprofiler",
 	"contributors": ["Alex Fernández <alexfernandeznpm@gmail.com>"],
