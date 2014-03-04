@@ -42,7 +42,47 @@ To show current stats for a given key, use `profiler.show()`:
 
     profiler.show('code');
 
+It will show a line similar to this:
+
+    [Tue Mar 04 2014 01:40:17 GMT+0100 (CET)] INFO Profiling code: 1000 requests, mean time: 105.76 µs, rps: 9455
+
 That is really all there is to it.
+
+### Measuring Performance
+
+The library has been designed to be dead simple to use.
+Each measurement should take less than a microsecond to perform.
+The library is therefore accurate to within one microsecond.
+
+### Asynchronous Profiling
+
+The functions above can be used in asynchronous code without problems.
+
+## Example
+
+Suppose we want to measure how long the following bit of code takes.
+
+    var string = '';
+    var total = 0;
+    for (var i = 0; i < 100; i++)
+    {
+        string += i;
+        total += parseInt(string);
+    }
+
+We can just add a couple of lines before and after it:
+
+    var profiler = require('microprofiler');
+
+    var start = profiler.start();
+    ... [code goes here]
+    profiler.measureFrom(start, 'loop', 10000);
+
+Now every time that code is executed a measure is taken and stored; after 10000 runs
+the profiler will show gathered results.
+To run in a synthetic test just stick the whole thing in a second loop.
+
+Also see [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/lib/sample.js).
 
 ## License
 
