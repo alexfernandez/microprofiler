@@ -24,24 +24,24 @@ Or add to your package.json as a dependency.
 The library has been designed to be dead simple to use.
 First require use of microprofiler:
 
-    var profiler = require('microprofiler');
+    var microprofiler = require('microprofiler');
 
 Locate a portion of code you want to measure. Insert a measurement before it starts:
 
-    var start = profiler.start();
+    var start = microprofiler.start();
 
-The function `profiler.start()` is simply an alias to `process.hrtime()`,
+The function `microprofiler.start()` is simply an alias to `process.hrtime()`,
 which returns time with nanosecond precision.
 
 After the block of code ends, insert a measurement passing a key:
 
-    profiler.measureFrom(start, 'code');
+    microprofiler.measureFrom(start, 'code');
 
 Optionally pass a number of requests after which a trace will be shown.
 
-To show current stats for a given key, use `profiler.show()`:
+To show current stats for a given key, use `microprofiler.show()`:
 
-    profiler.show('code');
+    microprofiler.show('code');
 
 It will show a line similar to this:
 
@@ -59,13 +59,13 @@ so it is not possible.)
 The library is therefore accurate to within two microseconds.
 
 Given that the impact of profiling is low but not zero, the whole module
-can be disabled with `profiler.disable()`:
+can be disabled with `microprofiler.disable()`:
 
-    profiler.disable();
+    microprofiler.disable();
 
-To get stats from your code just call `profiler.getStats()`:
+To get stats from your code just call `microprofiler.getStats()`:
 
-    var stats = profiler.getStats('code');
+    var stats = microprofiler.getStats('code');
 
 It will return an object with current stats info, like this:
 
@@ -91,14 +91,14 @@ Suppose we want to measure how long the following bit of code takes.
 
 We can just add a couple of lines before and after it:
 
-    var profiler = require('microprofiler');
+    var microprofiler = require('microprofiler');
 
-    var start = profiler.start();
+    var start = microprofiler.start();
     ... [code goes here]
-    profiler.measureFrom(start, 'loop', 10000);
+    microprofiler.measureFrom(start, 'loop', 10000);
 
 Now every time that code is executed a measure is taken and stored; after 10000 runs
-the profiler will show gathered results.
+the microprofiler will show gathered results.
 To run in a synthetic test just stick the whole thing in a second loop.
 
 Also see [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/lib/sample.js).
