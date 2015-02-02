@@ -33,19 +33,29 @@ Locate a portion of code you want to measure. Insert a measurement before it sta
 The function `microprofiler.start()` is simply an alias to `process.hrtime()`,
 which returns time with nanosecond precision.
 
-After the block of code ends, insert a measurement passing a key:
+To simply measure the number of microseconds elapsed in the block of code,
+insert a call to `measureFrom()` passing only the `start`:
+
+    var elapsedUs = microprofiler.measureFrom(start);
+
+Optionally you may want the microprofiler to keep track of time,
+then pass a key as the optional second parameter:
 
     microprofiler.measureFrom(start, 'code');
 
-Optionally pass a number of requests after which a trace will be shown.
-
-To show current stats for a given key, use `microprofiler.show()`:
+To show current stats for a given key on demand, use `microprofiler.show()`:
 
     microprofiler.show('code');
 
-It will show a line similar to this:
+A line similar to this will be shown:
 
     [Tue Mar 04 2014 01:40:17 GMT+0100 (CET)] INFO Profiling code: 1000 requests, mean time: 105.76 µs, rps: 9455
+
+Even simpler, you can also pass an optional number of requests after which stats will be shown:
+
+    microprofiler.measureFrom(start, 'code', 1000);
+
+Now the stats will be shown automatically after 1000 requests.
 
 That is really all there is to it.
 The functions above can be used in asynchronous code without problems.
@@ -94,14 +104,42 @@ We can just add a couple of lines before and after it:
     var microprofiler = require('microprofiler');
 
     var start = microprofiler.start();
-    ... [code goes here]
+    ... [profiled code goes here]
     microprofiler.measureFrom(start, 'loop', 10000);
 
 Now every time that code is executed a measure is taken and stored; after 10000 runs
 the microprofiler will show gathered results.
-To run in a synthetic test just stick the whole thing in a second loop.
 
-Also see [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/lib/sample.js).
+Multiple measurements can be taken:
+
+
+    var microprofiler = require('microprofiler');
+
+    var start = microprofiler.start();
+    ... [first block of profiled code goes here]
+    microprofiler.measureFrom(start, 'first', 10000);
+    ... [more profiled code]
+    microprofiler.measureFrom(start, 'second', 10000);
+    ... [even more profiled code]
+    microprofiler.measureFrom(start, 'third', 10000);
+
+Now two intermediate measurements are taken.
+
+To run in a synthetic test just stick the whole thing in a second loop:
+
+    var microprofiler = require('microprofiler');
+    var rounds = 10000;
+
+    for (var index = 0; index < rounds; index++)
+    {
+        var start = microprofiler.start();
+        ... [profiled code goes here]
+        microprofiler.measureFrom(start, 'loop', rounds);
+    }
+
+It will run the code, profile it, and show the results at the end.
+
+Also see the [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/lib/sample.js).
 
 ## License
 
