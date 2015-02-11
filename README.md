@@ -1,6 +1,8 @@
 
 [![Build Status](https://secure.travis-ci.org/alexfernandez/microprofiler.png)](http://travis-ci.org/alexfernandez/microprofiler)
 
+[![NPM](https://nodei.co/npm/microprofiler.png)](https://nodei.co/npm/microprofiler/)
+
 # microprofiler
 
 Low-level profiling for node.js: squeeze those microseconds!
