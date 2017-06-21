@@ -11,8 +11,8 @@
 		"url": "https://github.com/alexfernandez/microprofiler"
 	},
 	"dependencies": {
-		"prototypes": "2.0.0",
-		"testing": "1.1.0",
+		"prototypes": "^2.3.3",
+		"testing": "^1.1.1",
 		"log": "*"
 	},
 	"keywords" : ["profiler", "profiling", "microprofiler", "microseconcds", "npm", "optimization"],
