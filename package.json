@@ -15,7 +15,7 @@
 	"dependencies": {
 		"prototypes": "^2.3.3",
 		"testing": "^1.1.1",
-		"log": "*"
+		"log": "~1.4.0"
 	},
 	"keywords": [
 		"profiler",
