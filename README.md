@@ -19,6 +19,13 @@ Simply install from npm:
 
 Or add to your package.json as a dependency.
 
+### Compatibility
+
+Versions 2 and later should be used with Node.js v16 or later:
+
+* Node.js v16 or later: ^2.0.0.
+* Earlier Node.js: please stick to ^1.0.0.
+
 ## Usage
 
 The library has been designed to be dead simple to use.
