@@ -2,7 +2,7 @@ import testing from 'testing'
 import {start, measureFrom, getProfiler, Profiler} from '../lib/profiler.js'
 
 // globals
-var enabled = true;
+let enabled = true;
 
 
 /**
@@ -10,14 +10,14 @@ var enabled = true;
  */
 function testProfilingProfiler(callback)
 {
-	var runs = 10000;
-	for (var i = 0; i < runs; i++)
+	const runs = 10000;
+	for (let i = 0; i < runs; i++)
 	{
-		var now = start();
+		const now = start();
 		measureFrom(now, 'fake');
 		measureFrom(now, 'profile');
 	}
-	var stats = getStats('profile');
+	const stats = getStats('profile');
 	testing.assert(stats.meanTimeUs < 5, 'Profiling should take less than 5 µs, took: ' + stats.meanTimeUs, callback);
 	testing.success(callback);
 }
@@ -51,27 +51,27 @@ export function disable() {
  */
 function testProfiler(callback)
 {
-	var runs = 100000;
-	var now = start();
-	var profiler = new Profiler('first');
-	var before;
-	for (var i = 0; i < runs; i++)
+	const runs = 100000;
+	const now = start();
+	const profiler = new Profiler('first');
+	let before;
+	for (let i = 0; i < runs; i++)
 	{
 		before = start();
 		const elapsedUs = measureFrom(before);
 		testing.assert(elapsedUs, 'measureFrom() should return something', callback);
 		profiler.measure(elapsedUs);
 	}
-	var stats = profiler.getStats();
+	const stats = profiler.getStats();
 	testing.assert(stats, 'No profiler stats', callback);
 	testing.assert(stats.timeUs, 'Profiler stats should not be zero', callback);
-	for (i = 0; i < runs; i++)
+	for (let i = 0; i < runs; i++)
 	{
 		before = start();
 		const elapsedUs = measureFrom(before, 'second', runs);
 		testing.assert(elapsedUs, 'measureFrom() should not decrease', callback);
 	}
-	var fromStart = measureFrom(now, 'fromStart');
+	const fromStart = measureFrom(now, 'fromStart');
 	testing.assert(fromStart, 'measureFrom() start should not be zero', callback);
 	testing.success(callback);
 }

@@ -22,13 +22,13 @@ Or add to your package.json as a dependency.
 ## Usage
 
 The library has been designed to be dead simple to use.
-First require use of microprofiler:
+First import microprofiler:
 
-    var microprofiler = require('microprofiler');
+    import microprofiler from 'microprofiler';
 
 Locate a portion of code you want to measure. Insert a measurement before it starts:
 
-    var start = microprofiler.start();
+    const start = microprofiler.start();
 
 The function `microprofiler.start()` is simply an alias to `process.hrtime()`,
 which returns time with nanosecond precision.
@@ -36,7 +36,7 @@ which returns time with nanosecond precision.
 To simply measure the number of microseconds elapsed in the block of code,
 insert a call to `measureFrom()` passing only the `start`:
 
-    var elapsedUs = microprofiler.measureFrom(start);
+    const elapsedUs = microprofiler.measureFrom(start);
 
 Optionally you may want the microprofiler to keep track of time,
 then pass a key as the optional second parameter:
@@ -75,7 +75,7 @@ can be disabled with `microprofiler.disable()`:
 
 To get stats from your code just call `microprofiler.getStats()`:
 
-    var stats = microprofiler.getStats('code');
+    const stats = microprofiler.getStats('code');
 
 It will return an object with current stats info, like this:
 
@@ -91,9 +91,9 @@ It will return an object with current stats info, like this:
 
 Suppose we want to measure how long the following bit of code takes.
 
-    var string = '';
-    var total = 0;
-    for (var i = 0; i < 100; i++)
+    let string = '';
+    let total = 0;
+    for (let i = 0; i < 100; i++)
     {
         string += i;
         total += parseInt(string);
@@ -101,9 +101,9 @@ Suppose we want to measure how long the following bit of code takes.
 
 We can just add a couple of lines before and after it:
 
-    var microprofiler = require('microprofiler');
+    const microprofiler = require('microprofiler');
 
-    var start = microprofiler.start();
+    const start = microprofiler.start();
     ... [profiled code goes here]
     microprofiler.measureFrom(start, 'loop', 10000);
 
@@ -113,9 +113,9 @@ the microprofiler will show gathered results.
 Multiple measurements can be taken:
 
 
-    var microprofiler = require('microprofiler');
+    const microprofiler = require('microprofiler');
 
-    var start = microprofiler.start();
+    const start = microprofiler.start();
     ... [first block of profiled code goes here]
     microprofiler.measureFrom(start, 'first', 10000);
     ... [more profiled code]
@@ -127,12 +127,12 @@ Now two intermediate measurements are taken.
 
 To run in a synthetic test just stick the whole thing in a second loop:
 
-    var microprofiler = require('microprofiler');
-    var rounds = 10000;
+    const microprofiler = require('microprofiler');
+    const rounds = 10000;
 
-    for (var index = 0; index < rounds; index++)
+    for (let index = 0; index < rounds; index++)
     {
-        var start = microprofiler.start();
+        const start = microprofiler.start();
         ... [profiled code goes here]
         microprofiler.measureFrom(start, 'loop', rounds);
     }
