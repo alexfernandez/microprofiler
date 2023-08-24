@@ -6,11 +6,7 @@
  */
 
 // requires
-var Log = require('log');
 var testing = require('testing');
-
-// globals
-var log = new Log('info');
 
 
 /**
@@ -18,7 +14,6 @@ var log = new Log('info');
  */
 exports.test = function(callback)
 {
-	log.debug('Running tests');
 	var tests = {};
 	var modules = ['profiler'];
 	modules.forEach(function(name)
