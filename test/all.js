@@ -1,5 +1,5 @@
 import testing from 'testing'
-import {test as testProfiler} from './lib/profiler.js'
+import {test as testProfiler} from './profiler.js'
 
 
 function test() {

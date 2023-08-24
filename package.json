@@ -28,7 +28,7 @@
 		"node": "*"
 	},
 	"scripts": {
-		"test": "node test.js"
+		"test": "node test/all.js"
 	},
 	"private": false
 }
