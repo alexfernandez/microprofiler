@@ -13,7 +13,6 @@
 		"url": "https://github.com/alexfernandez/microprofiler"
 	},
 	"dependencies": {
-		"prototypes": "^2.3.3",
 		"testing": "^1.1.1"
 	},
 	"keywords": [
