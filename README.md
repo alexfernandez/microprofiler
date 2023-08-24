@@ -139,7 +139,7 @@ To run in a synthetic test just stick the whole thing in a second loop:
 
 It will run the code, profile it, and show the results at the end.
 
-Also see the [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/lib/sample.js).
+Also see the [sample in the repo](https://github.com/alexfernandez/microprofiler/blob/master/bin/sample.js).
 
 ## License
 

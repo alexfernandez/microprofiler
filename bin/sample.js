@@ -1,4 +1,4 @@
-import * as profiler from './profiler.js'
+import * as profiler from '../index.js'
 
 
 /**
