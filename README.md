@@ -108,7 +108,7 @@ Suppose we want to measure how long the following bit of code takes.
 
 We can just add a couple of lines before and after it:
 
-    const microprofiler = require('microprofiler');
+    import microprofiler from 'microprofiler';
 
     const start = microprofiler.start();
     ... [profiled code goes here]
@@ -120,7 +120,7 @@ the microprofiler will show gathered results.
 Multiple measurements can be taken:
 
 
-    const microprofiler = require('microprofiler');
+    import microprofiler from 'microprofiler';
 
     const start = microprofiler.start();
     ... [first block of profiled code goes here]
@@ -134,9 +134,9 @@ Now two intermediate measurements are taken.
 
 To run in a synthetic test just stick the whole thing in a second loop:
 
-    const microprofiler = require('microprofiler');
-    const rounds = 10000;
+    import microprofiler from 'microprofiler';
 
+    const rounds = 10000;
     for (let index = 0; index < rounds; index++)
     {
         const start = microprofiler.start();
