@@ -16,4 +16,5 @@ for (var i = 0; i < total; i++)
 	s += i;
 	profiler.measureFrom(start, 'stuff', total);
 }
+console.log('s is ' + s.length)
 
