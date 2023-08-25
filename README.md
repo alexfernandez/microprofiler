@@ -15,9 +15,9 @@ at interesting points.
 
 Simply install from npm:
 
-    $ npm install microprofiler
+    $ npm install --save-dev microprofiler
 
-Or add to your package.json as a dependency.
+Or add to your package.json as a `devDependency`.
 
 ### Compatibility
 
