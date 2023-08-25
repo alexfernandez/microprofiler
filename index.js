@@ -1,15 +1,8 @@
-'use strict';
+import {start, measureFrom, show, disable, getStats} from './lib/profiler.js'
 
-/**
- * Microprofiler: export main function.
- * (C) 2014 Alex Fernández.
- */
+const profiler = {start, measureFrom, show, disable, getStats}
 
+export default profiler
 
-// requires
-require('prototypes');
-var profiler = require('./lib/profiler.js');
-
-// exports
-exports.overwriteWith(profiler);
+export {start, measureFrom, show, disable, getStats} from './lib/profiler.js'
 

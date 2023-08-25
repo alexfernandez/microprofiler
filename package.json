@@ -1,6 +1,7 @@
 {
 	"name": "microprofiler",
-	"version": "1.0.4",
+	"version": "2.0.0",
+	"type": "module",
 	"description": "Low-level profiling for node.js: squeeze those microseconds.",
 	"homepage": "https://github.com/alexfernandez/microprofiler",
 	"contributors": [
@@ -13,9 +14,7 @@
 		"url": "https://github.com/alexfernandez/microprofiler"
 	},
 	"dependencies": {
-		"prototypes": "^2.3.3",
-		"testing": "^1.1.1",
-		"log": "~1.4.0"
+		"testing": "^3.1.0"
 	},
 	"keywords": [
 		"profiler",
@@ -29,7 +28,7 @@
 		"node": "*"
 	},
 	"scripts": {
-		"test": "node test.js"
+		"test": "node test/all.js"
 	},
 	"private": false
 }
